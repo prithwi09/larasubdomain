@@ -17,7 +17,9 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) { //dd($request->subdomain());
         if($request->route()->action['domain']=='admin.prithwi.com')
             return route('admin.login');
-            else
+        else if($request->route()->action['domain']=='dealer.prithwi.com')
+            return route('dealer.login');
+        else
             return route('login');
         }
     }

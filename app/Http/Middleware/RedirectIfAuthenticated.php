@@ -25,6 +25,8 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if($guard == 'admin')
                     return redirect(RouteServiceProvider::HOMECP);
+                else if($guard == 'dealer')
+                    return redirect(RouteServiceProvider::HOMEDL);                    
                 else
                     return redirect(RouteServiceProvider::HOME);
             }
